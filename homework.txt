@@ -1,11 +1,11 @@
 package com.company;
 
 public class Main {
-    // РџРµСЂРІР°СЏ Р·Р°РґР°С‡Р°!;
+    // Первая задача!;
     private static float sum(int a, int b, int c, int d) {
         return a * (b + (c / d));
     }
-    //Р’С‚РѕСЂР°СЏ Р·Р°РґР°С‡Р°!;
+    //Вторая задача!;
     private static boolean pag(int a, int b) {
         if (a + b >= 10) {
             if (a + b <= 20) {
@@ -13,18 +13,18 @@ public class Main {
             } else return false;
         } else return false;
     }
-     // Р§РµС‚РІРµСЂС‚Р°СЏ Р·Р°РґР°С‡Р°!;
+     // Четвертая задача!;
     private static String name(String name) {
-        return ("РџСЂРёРІРµС‚, " + name);
+        return ("Привет, " + name);
 
     }
-    // РўСЂРµС‚СЊСЏ Р·Р°РґР°С‡Р°!;
+    // Третья задача!;
     private static boolean zero(int a) {
         if (a >= 0) {
             return true;
         } else return false;
     }
-    // Р—Р°РґР°С‡Р° СЃРѕ  *;
+    // Задача со  *;
     private static boolean year(int a){
         if(a%4 == 0){
             if (a%100 ==0){
@@ -35,15 +35,15 @@ public class Main {
         }else return false;
     }
     public static void main (String[] args){
-             // РџРµСЂРІР°СЏ Р·Р°РґР°С‡Р°!;
+             // Первая задача!;
             System.out.println(sum(1, 5, 4, 4));
-            //Р’С‚РѕСЂР°СЏ Р·Р°РґР°С‡Р°!;
+            //Вторая задача!;
             System.out.println(pag(5, 6));
-            // Р§РµС‚РІРµСЂС‚Р°СЏ Р·Р°РґР°С‡Р°!;
+            // Четвертая задача!;
             System.out.println(name("Ivan"));
-            // РўСЂРµС‚СЊСЏ Р·Р°РґР°С‡Р°!;
+            // Третья задача!;
             System.out.println(zero(0));
-            // Р—Р°РґР°С‡Р° СЃРѕ  *;
+            // Задача со  *;
             System.out.print(year(89));
 
         }
