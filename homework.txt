@@ -1,8 +1,11 @@
+package com.company;
+
 public class Main {
+    // Первая задача!;
     private static float sum(int a, int b, int c, int d) {
         return a * (b + (c / d));
     }
-
+    //Вторая задача!;
     private static boolean pag(int a, int b) {
         if (a + b >= 10) {
             if (a + b <= 20) {
@@ -10,18 +13,18 @@ public class Main {
             } else return false;
         } else return false;
     }
-
+     // Четвертая задача!;
     private static String name(String name) {
         return ("Привет, " + name);
 
     }
-
+    // Третья задача!;
     private static boolean zero(int a) {
         if (a >= 0) {
             return true;
         } else return false;
     }
-
+    // Задача со  *;
     private static boolean year(int a){
         if(a%4 == 0){
             if (a%100 ==0){
@@ -32,10 +35,15 @@ public class Main {
         }else return false;
     }
     public static void main (String[] args){
+             // Первая задача!;
             System.out.println(sum(1, 5, 4, 4));
+            //Вторая задача!;
             System.out.println(pag(5, 6));
+            // Четвертая задача!;
             System.out.println(name("Ivan"));
+            // Третья задача!;
             System.out.println(zero(0));
+            // Задача со  *;
             System.out.print(year(89));
 
         }
