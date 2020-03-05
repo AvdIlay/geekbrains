@@ -1,0 +1,41 @@
+package com.company;
+
+public class Main {
+    // Первая задача!;
+    private static float sum(float a, float b, float c, float d) {
+        return a * (b + (c / d));
+    }
+    //Вторая задача!;
+    private static boolean pag(int a, int b) {
+        return (a + b <= 20 && a + b >= 10);
+
+    }
+
+
+     // Четвертая задача!;
+    private static String name(String name) {
+        return ("Привет, " + name);
+
+    }
+    // Третья задача!;
+    private static boolean zero(int a) {
+        return (a >= 0);
+    }
+    // Задача со  *;
+    private static boolean year(int a){
+       return  ((a%4==0) && ((a%100!=0) || (a%400==0)));
+    }
+    public static void main (String[] args){
+             // Первая задача!;
+            System.out.println(sum(1, 5, 4, 5));
+            //Вторая задача!;
+            System.out.println(pag(1, 6));
+            // Четвертая задача!;
+            System.out.println(name("Ivan"));
+            // Третья задача!;
+            System.out.println(zero(0));
+            // Задача со  *;
+            System.out.print(year(504));
+
+        }
+    }
