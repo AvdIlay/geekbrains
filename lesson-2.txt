@@ -1,0 +1,129 @@
+package ru.geekbrains;
+
+        import java.lang.reflect.Array;
+        import java.util.Arrays;
+
+public class Main {
+    private static void M1(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 0) {
+                a[i] = 1;
+            } else a[i] = 0;
+        }
+        System.out.println(Arrays.toString(a));
+    }
+
+    private static void M2(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            a[i] = 1 + i * 3;
+        }
+        System.out.println(Arrays.toString(a));
+    }
+
+    private static void M3(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < 6) {
+                a[i] = a[i] * 2;
+            }
+        }
+        System.out.println(Arrays.toString(a));
+    }
+
+    private static void M4(int[] y) {
+        int a = y[0];
+        int min = 0;
+        int max = 0;
+        int b = y[0];
+        for (int i = 0; i < y.length; i++) {
+            if (y[i] < a) {
+                a = y[i];
+                min = i;
+            }
+            if (y[i] > b) {
+                b = y[i];
+                max = i;
+            }
+        }
+        System.out.println("Минимальный элемент " + (min + 1) + " со значением " + a);
+        System.out.println("Максимальный элемент " + (max + 1) + " со значением " + b);
+    }
+
+    private static void M5(int[][] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] = 0;
+                if (i == j) {
+                    a[i][j] = 1;
+                }
+                if (i + j == (a.length - 1)) {
+                    a[i][j] = 1;
+                }
+                System.out.printf("%2d", a[i][j]);
+            }
+            System.out.println();
+        }
+
+    }
+
+    private static boolean M6(int[] a) {
+        boolean answer = false;
+        for (int j = 1; j < (a.length - 1); j++) {
+            int sumL = 0;
+            int sumR = 0;
+            for (int i = 0; i < j; i++) {
+                sumL = sumL + a[i];
+            }
+            for (int i = j; i < a.length; i++) {
+                sumR = sumR + a[i];
+            }
+            if (sumL == sumR) {
+                answer = true;
+            }
+        }
+        return answer;
+    }
+
+    private static void M7(int[] a, int n) {
+        int[] b = new int[a.length];
+        if(n>a.length|| n<0) {
+            n=n % a.length;
+        }
+        for (int i = 0; i < a.length; i++) {
+            if (n > 0) {
+                if (i + n >= a.length) {
+                    b[i + n - a.length]=a[i];
+                } else {
+                    b[i + n]=a[i];
+                }
+
+            }
+            if (n < 0) {
+                if (i + n < 0) {
+                     b[i + n + a.length]=a[i];
+                } else b[i + n]=a[i];
+
+            }
+        }
+        System.out.println(Arrays.toString(b));
+    }
+
+        public static void main(String[] args) {
+        int[] m1 = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        int[] m2 = new int[8];
+        int[] m3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        int[] m4 ={1, 5, 3, 2, 11, 0, 50, 2, 4, 8, 9, 1};
+        int[][] m5 = new int[15][15];
+        int [] m6 = {10,1,2,3,4};
+        int[] m7 = {1,2,3,4,5,6};
+        System.out.println(Arrays.toString(m1));
+        M1(m1);
+        M2(m2);
+        M3(m3);
+        M4(m4);
+        M5(m5);
+        System.out.println(M6(m6));
+        M7(m7,-7);
+
+
+    }
+}
