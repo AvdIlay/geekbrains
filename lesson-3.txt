@@ -1,0 +1,145 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+
+    private static final char Hod_Human = 'X';
+    private static final char Hod_AI = '0';
+    private static final char Dot_Empty = '_';
+    private static int fieldSizeX;
+    private static int fieldSizeY;
+    private static char[][] field;
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final Random RANDOM = new Random();
+
+    private static void initField() {
+        fieldSizeX = 5;
+        fieldSizeY = 5;
+        field = new char[fieldSizeY][fieldSizeX];
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
+                field[y][x] = Dot_Empty;
+            }
+        }
+    }
+
+    private static void printField() {
+        System.out.println("-----------");
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
+                System.out.print(field[y][x] + "|");
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean isValidCell(int x, int y) {
+        return x >= 0 && x < fieldSizeX && y >= 0 && y < fieldSizeY;
+    }
+
+    private static boolean isemptyCell(int x, int y) {
+        return field[y][x] == Dot_Empty;
+    }
+
+    private static void humanTurn() {
+        int x;
+        int y;
+        do {
+            System.out.println("Введите координаты Y и X (от 1 до 3) через пробел >>>");
+            x = SCANNER.nextInt() - 1;
+            y = SCANNER.nextInt() - 1;
+        } while (!isValidCell(x, y) || !isemptyCell(x, y));
+        field[y][x] = Hod_Human;
+    }
+    private static void aiTurn(char c) {
+        int x;
+        int y;
+                    do {
+                    x = RANDOM.nextInt(fieldSizeX);
+                    y = RANDOM.nextInt(fieldSizeY);
+                } while (!isemptyCell(x,y));
+                field[x][y] = Hod_AI;
+            }
+
+    private static boolean isDraw() {
+        for (int y = 0; y < fieldSizeY; y++) {
+            for (int x = 0; x < fieldSizeX; x++) {
+                if (field[y][x] == Dot_Empty) return false;
+
+            }
+        }
+        return true;
+    }
+
+
+        private static boolean checkWin(char c ) {
+            int n=0;
+            int m=0;
+            int k;
+            int a;
+            for (int x = 0; x < fieldSizeX; x++) {
+                k=0;
+                a=0;
+                for (int y = 0; y < fieldSizeY; y++) {
+                    if (field[x][y] == c){
+                        k=k+1;
+                    }
+
+                    if(field[y][x]==c){
+                        a=a+1;
+                    }
+                }
+                if (k==4||a==4){
+                    return true;
+                }
+            }
+            for (int j = 0; j < fieldSizeX; j++) {
+                if(field[j][j]==c){
+                    n= n+1;
+                }
+                if (field[j][fieldSizeX-1-j]==c){
+                    m=m+1;
+                }
+            }
+            return n==4 || m==4;
+        }
+
+
+
+            public static void main(String[] args) {
+                while (true) {
+                    initField();
+                    printField();
+                    while (true) {
+                        humanTurn();
+                        printField();
+                        if (checkWin(Hod_Human)) {
+                            System.out.println("Выиграл игрок!");
+                            break;
+                        }
+                        if (isDraw()) {
+                            System.out.println("Ничья!");
+                            break;
+                        }
+                        aiTurn(Hod_AI);
+                        printField();
+                        if (checkWin(Hod_AI)) {
+                            System.out.println("Выиграл компьютер!");
+                            break;
+                        }
+                        if (isDraw()) {
+                            System.out.println("Ничья!");
+                            break;
+                        }
+
+                    }
+                    System.out.println("Сыграть еще?");
+                    if (SCANNER.next().equals("no"))
+                        break;
+                }
+            }
+        }
