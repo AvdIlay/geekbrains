@@ -1,0 +1,47 @@
+public class Staff {
+    private static final int CURRENT_YEAR = 2020;
+    private String surname;
+    private int salary;
+    private int birthDate;
+    private String position;
+    private  int id=0;
+    private static int b=0;
+    private int Id() {
+      this.id =b+1;
+        b=b+1;
+        return this.id;
+
+        }
+    public int getId() {
+        return this.id;
+    }
+
+    public void setSalaryincrease(int a){
+         this.salary = salary+a;
+    }
+
+    public int getBirthDate() {
+        return CURRENT_YEAR - birthDate;
+
+    }
+
+    public int getSalary() {
+        return this.salary;
+
+    }
+
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public String getPosition() {
+        return this.position;
+    }
+    public Staff(String surname, int salary, int birthDate, String position) {
+        this.surname = surname;
+        this.salary = salary;
+        this.birthDate = birthDate;
+        this.position = position;
+        this.id = this.Id();
+    }
+}
