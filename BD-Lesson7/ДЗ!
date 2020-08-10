@@ -1,0 +1,85 @@
+CREATE TABLE `social_network`.`app_from` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `social_network`.`table_like` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Who_id` INT NOT NULL,
+  `whom_no` INT NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+
+
+--Запрос  id пользователя; имя;
+SELECT
+*
+FROM
+app_from
+LEFT JOIN
+table_like ON app_from.id = table_like.Who_id;
+
+-- Who_id кто ставит,whom_no кому поставили!
+--Лайков получено;
+SELECT
+Who_id, COUNT(Who_id) AS Count_like
+FROM
+table_like
+GROUP BY Who_id;
+
+
+--Лайков поставлено;
+SELECT
+whom_no, COUNT(whom_no) AS Count_li
+FROM
+table_like
+GROUP BY whom_no;  
+
+
+--Взаимные лайки.
+select tl.Who_id,tl.whom_no from table_like tl
+inner  join table_like tl2 on tl.Who_id = tl2.whom_no  and tl2.Who_id = tl.whom_no
+where tl.Who_id = 13
+
+
+
+--Запрос для  вывода  кто поставил  лайки А и В, но  не  поставил  С!
+SELECT 
+     DISTINCT Who_id
+FROM
+    table_like tl
+WHERE
+    Who_id NOT in (SELECT  Who_id from table_like where whom_no = 'С') 
+    and Who_id in (SELECT  Who_id from table_like where whom_no = 'A') 
+    and Who_id in (SELECT  Who_id from table_like where whom_no = 'B')
+
+--Создание  сушьностей  для  задния  3! 
+CREATE TABLE `social_network`.`table_phoro` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Name_photo` VARCHAR(45) NULL,
+  `App_id` INT NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `social_network`.`table_comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `comment` VARCHAR(45) NOT NULL,
+  `Photo_id` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+
+CREATE TABLE `social_network`.`like_photo` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Who` INT NOT NULL,
+  `photo_id` INT NOT NULL NOT NULL,
+  PRIMARY KEY (`id`));
+
+
+CREATE TABLE `social_network`.`like_comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Who` INT NOT NULL,
+  `comment_id` INT NOT NULL NOT NULL,
+  PRIMARY KEY (`id`))
