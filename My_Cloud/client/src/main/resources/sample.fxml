@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <AnchorPane prefHeight="577.0" prefWidth="568.0" GridPane.rowIndex="1">
+        <ListView fx:id="listView" layoutX="14.0" layoutY="14.0" prefHeight="393.0" prefWidth="269.0" />
+        <TextField fx:id="text" layoutX="77.0" layoutY="483.0" prefHeight="38.0" prefWidth="387.0" promptText="Введите текст" />
+      <TextField fx:id="username" layoutX="15.0" layoutY="406.0" prefHeight="39.0" prefWidth="400.0" />
+      <Button fx:id="login" layoutX="415.0" layoutY="406.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="137.0" text="Log in" />
+        <Button fx:id="upload" layoutX="14.0" layoutY="483.0" mnemonicParsing="false" onAction="#uploadFile" prefHeight="38.0" prefWidth="63.0" text="UPLOAD" />
+      <ListView fx:id="listView1" layoutX="283.0" layoutY="14.0" prefHeight="393.0" prefWidth="269.0" />
+      <Button fx:id="download" layoutX="466.0" layoutY="483.0" mnemonicParsing="false" onAction="#downloadFile" prefHeight="38.0" prefWidth="88.0" text="DOWNLOAD" />
+      <TextField fx:id="log" layoutX="14.0" layoutY="445.0" prefHeight="38.0" prefWidth="538.0" />
+      <Text layoutX="14.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Local Path" />
+      <Text layoutX="520.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cloud" />
+    </AnchorPane>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="533.0" minHeight="533.0" prefHeight="533.0" />
+   </rowConstraints>
+</GridPane>
